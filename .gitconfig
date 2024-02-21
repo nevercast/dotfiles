@@ -1,0 +1,44 @@
+[user]
+	name = Josh Lloyd
+	email = 834342+nevercast@users.noreply.github.com 
+[core]
+	whitespace = cr-at-eol
+	caseinsensitive = true
+	ignorecase = false
+	editor = code --wait
+	autocrlf = false
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+	longpaths = true
+[push]
+	default = current
+[alias]
+	ff = pull --ff-only
+	feat = checkout develop -b
+	pushf = push --force-with-lease
+	f = fetch
+	co = checkout
+	based = "!git co develop && git ff && git co - && git rebase -Xignore-space-change develop"
+	remotes = "!git remote -v | awk '{print $1}' | uniq"
+	unco = reset --soft HEAD~1
+	wip = commit -am 'WIP - DONT PUSH'
+	hist = log --oneline --graph --all --decorate
+	aic = "!aider --commit --model gpt-3.5-turbo"
+	im = "!git-imerge"
+[diff]
+	guitool = vscode
+[difftool "vscode"]
+	path = code
+	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	guitool = vscode
+[mergetool "vscode"]
+	path = code
+	cmd = code --wait \"$MERGED\"
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+[rerere]
+	enabled = true
